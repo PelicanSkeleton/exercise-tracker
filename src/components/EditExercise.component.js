@@ -85,7 +85,7 @@ export default class EditExercise extends Component {
         axios.post('http://localhost:5000/exercises/update/'+this.props.match.params.id, exercise)
             .then(res => console.log(res.data));
 
-        // window.location = '/';
+        window.location = '/';
     }
 
     render() {
@@ -99,8 +99,8 @@ export default class EditExercise extends Component {
                             ref="userInput"
                             required
                             className="form-control"
-                            // value={this.state.username}
-                            onChange={this.state.onChangeUsername}>
+                            value={this.state.username}
+                            onChange={this.onChangeUsername}>
                             {
                                 this.state.users.map(function (user) {
                                     return <option
@@ -116,8 +116,8 @@ export default class EditExercise extends Component {
                         <input
                             type="text"
                             className="form-control"
-                            // value={this.state.description}
-                            onChange={this.state.onChangeDescription}
+                            value={this.state.description}
+                            onChange={this.onChangeDescription}
                         />
                     </div>
                     <div className="form-group">
@@ -125,8 +125,8 @@ export default class EditExercise extends Component {
                         <input
                             type="text"
                             className="form-control"
-                            // value={this.state.duration}
-                            onChange={this.state.onChangeDuration}
+                            value={this.state.duration}
+                            onChange={this.onChangeDuration}
                         />
                     </div>
                     <div className="form-group">

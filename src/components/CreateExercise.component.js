@@ -24,14 +24,16 @@ export default class CreateExercise extends Component {
 
     componentDidMount() {
         axios.get('http://localhost:5000/users/')
-        .then(response => {
-            if (response.data.length > 0) {
-                this.setState({
-                    users: response.data.map(user => user.username),
-                    username: response.data[0].username
-                })
-            }
-        })
+            .then(response => {
+                console.log(response);
+                if (response.data.length > 0) {
+                    this.setState({
+                        users: response.data.map(user => user.username),
+                        username: response.data.map.username
+
+                    })
+                }
+            })
     }
 
     onChangeUsername(e) {
@@ -73,7 +75,7 @@ export default class CreateExercise extends Component {
         axios.post('http://localhost:5000/exercises/add', exercise)
             .then(res => console.log(res.data));
 
-        // window.location = '/';
+        window.location = '/';
     }
 
     render() {
@@ -87,8 +89,8 @@ export default class CreateExercise extends Component {
                             ref="userInput"
                             required
                             className="form-control"
-                            // value={this.state.username}
-                            onChange={this.state.onChangeUsername}>
+                            value={this.state.username}
+                            onChange={this.onChangeUsername}>
                             {
                                 this.state.users.map(function (user) {
                                     return <option
@@ -104,8 +106,8 @@ export default class CreateExercise extends Component {
                         <input
                             type="text"
                             className="form-control"
-                            // value={this.state.description}
-                            onChange={this.state.onChangeDescription}
+                            value={this.state.description}
+                            onChange={this.onChangeDescription}
                         />
                     </div>
                     <div className="form-group">
@@ -113,8 +115,8 @@ export default class CreateExercise extends Component {
                         <input
                             type="text"
                             className="form-control"
-                            // value={this.state.duration}
-                            onChange={this.state.onChangeDuration}
+                            value={this.state.duration}
+                            onChange={this.onChangeDuration}
                         />
                     </div>
                     <div className="form-group">
