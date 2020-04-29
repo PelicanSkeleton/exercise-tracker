@@ -29,7 +29,7 @@ export default class CreateExercise extends Component {
                 if (response.data.length > 0) {
                     this.setState({
                         users: response.data.map(user => user.username),
-                        username: response.data.map.username
+                        username: response.data[0].username
 
                     })
                 }
@@ -84,7 +84,7 @@ export default class CreateExercise extends Component {
                 <h3>Create New Exercise Log</h3>
                 <form onSubmit={this.onSubmit}>
                     <div className="form-group">
-                        <label>Username: </label>
+                        <label>Username (choose from drop down): </label>
                         <select
                             ref="userInput"
                             required
